@@ -2,12 +2,13 @@
 
 // TODO: paste your actual firebase config keys here
 const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
-  projectId: "YOUR_ID",
-  storageBucket: "YOUR_BUCKET",
-  messagingSenderId: "YOUR_MSG",
-  appId: "YOUR_APPID"
+apiKey: "AIzaSyDal4qdGUMs5M2vOWc_0SlJMjAVRfBlDtk",
+  authDomain: "mfsquad-ea7df.firebaseapp.com",
+  projectId: "mfsquad-ea7df",
+  storageBucket: "mfsquad-ea7df.firebasestorage.app",
+  messagingSenderId: "871834118204",
+  appId: "1:871834118204:web:7f7bb9f37410a88f7efb39",
+  measurementId: "G-3EKLRLNMXQ"
 };
 
 // Init
