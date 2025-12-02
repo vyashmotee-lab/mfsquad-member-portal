@@ -107,4 +107,3 @@ async function handleRegister(event) {
 async function logout() {
   await auth.signOut();
 }
-Add login / register functions
