@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MFSquad Member Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <span class="brand-text">MRU Fronx Squad – Member Portal</span>
+    </div>
+    <div class="user-info" id="userInfo">
+      <span id="currentUserEmail"></span>
+      <button id="logoutBtn" class="btn-secondary hidden">Log out</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- ============ AUTH ============ -->
+    <section id="authSection" class="card auth-card">
+      <h2>Sign in / Register</h2>
+
+      <div class="tabs">
+        <button id="loginTab" class="tab active">Login</button>
+        <button id="registerTab" class="tab">Register</button>
+      </div>
+
+      <form id="loginForm" class="form visible">
+        <label>Email
+          <input type="email" id="loginEmail" required />
+        </label>
+        <label>Password
+          <input type="password" id="loginPassword" required />
+        </label>
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+
+      <form id="registerForm" class="form hidden">
+        <label>Full name
+          <input type="text" id="registerName" required />
+        </label>
+        <label>Email (use @mfsquad.mu if possible)
+          <input type="email" id="registerEmail" required />
+        </label>
+        <label>Password
+          <input type="password" id="registerPassword" required minlength="6" />
+        </label>
+        <button type="submit" class="btn-primary">Create account</button>
+      </form>
+
+      <p id="authMessage" class="message"></p>
+    </section>
+
+    <!-- ============ DASHBOARD ============ -->
+    <section id="dashboardSection" class="hidden dashboard">
+      <div class="cards-grid">
+        <!-- PROFILE -->
+        <section class="card">
+          <h2>Your profile</h2>
+          <div class="profile-block">
+            <img id="profilePhoto" class="avatar" src="" alt="Profile photo" />
+            <div>
+              <p><strong>Name:</strong> <span id="profileName"></span></p>
+              <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+              <p><strong>Role:</strong> <span id="profileRole"></span></p>
+              <p><strong>Joined:</strong> <span id="profileJoined"></span></p>
+            </div>
+          </div>
+
+          <form id="profileForm" class="form">
+            <label>Update display name
+              <input type="text" id="profileNameInput" />
+            </label>
+
+            <label>Profile photo
+              <input type="file" id="profilePhotoInput" accept="image/*" />
+            </label>
+
+            <button type="submit" class="btn-primary">Save profile</button>
+            <p id="profileMessage" class="message"></p>
+          </form>
+        </section>
+
+        <!-- ADMIN PANEL -->
+        <section class="card" id="adminCard" class="hidden">
+          <h2>Admin – Members list</h2>
+          <p class="small">
+            Only visible if your account has admin privileges.
+          </p>
+          <button id="refreshMembersBtn" class="btn-secondary small-btn">
+            Refresh members
+          </button>
+          <ul id="membersList" class="member-list"></ul>
+          <p id="adminMessage" class="message"></p>
+        </section>
+
+        <!-- AI BOT -->
+        <section class="card">
+          <h2>MFSquad Virtual Assistant 🤖</h2>
+          <p class="small">
+            This is your AI helper. For now, it will reply with built-in
+            demo messages. Later we will connect it to a real OpenAI backend.
+          </p>
+
+          <div class="chat-box" id="chatBox">
+            <div class="chat-messages" id="chatMessages">
+              <div class="chat-message bot">
+                Hi! I’m your MFSquad assistant. Ask me anything about the club,
+                membership or events.
+              </div>
+            </div>
+            <form id="chatForm" class="chat-input-row">
+              <input
+                id="chatInput"
+                type="text"
+                placeholder="Type your question…"
+                required
+              />
+              <button type="submit" class="btn-primary small-btn">
+                Send
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Firebase SDKs (compat – simpler for beginners) -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-storage-compat.js"></script>
+
+  <!-- Your app logic -->
+  <script src="app.js"></script>
+</body>
+</html>
